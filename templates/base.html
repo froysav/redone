@@ -1,0 +1,142 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ecoverde - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block css %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Ecoverde</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{% url 'agent' %}" class="nav-link">Agent</a></li>
+                <li class="nav-item"><a href="{% url 'services' %}" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="{% url 'properties' %}" class="nav-link">Properties</a></li>
+                <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="{% url 'register' %}" class="nav-link">Register</a></li>
+                {% if user.is_authenticated %}
+                    {{ user.first_name }} {{ user.last_name }}
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">logout</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="hero-wrap" style="background-image: url({% static 'images/bg_1.jpg' %});"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center">
+            <div class="col-lg-7 col-md-6 ftco-animate d-flex align-items-end">
+                <div class="text">
+                    <h1 class="mb-4">Find Perfect <br>House From Your Area.</h1>
+                    <p style="font-size: 18px;">From as low as $20 A small river named Duden flows by their place and
+                        supplies it with the necessary regelialia.</p>
+                    <p><a href="#" class="btn btn-primary py-3 px-4">View all properties</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% block content %}
+{% endblock %}
+
+
+
+<footer class="ftco-footer ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Ecoverde</h2>
+                    <p>Far far away, behind the word mountains, far from the countries.</p>
+                    <ul class="ftco-footer-social list-unstyled mt-5">
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2">Community</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Search Properties</a></li>
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>For Agents</a></li>
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Reviews</a></li>
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2">About Us</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Our Story</a></li>
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Meet the team</a></li>
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Company</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About Us</a></li>
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Press</a></li>
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
+                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span>
+                            </li>
+                            <li><a href="#"><span class="icon fa fa-phone"></span><span
+                                    class="text">+2 392 3929 210</span></a></li>
+                            <li><a href="#"><span class="icon fa fa-envelope pr-4"></span><span class="text">info@yourdomain.com</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by
+                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+        </div>
+    </div>
+</footer>
+{% block load %}
+{% endblock %}
+{% block js %}
+{% endblock %}
+</body>

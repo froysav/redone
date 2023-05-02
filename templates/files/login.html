@@ -1,0 +1,13 @@
+{% block login %}
+    <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if user.is_authenticated %}
+        Logged in as {{ user.first_name }} {{ user.last_name }}
+    {% endif %}
+{% endblock %}
