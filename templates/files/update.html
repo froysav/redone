@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{#    <form method="post" action="{% url 'detail' %}">#}
+{#        {% csrf_token %}#}
+{#        <label for="picture">Picture:</label><br>#}
+{#        <input type="file" id="picture" name="picture"><br>#}
+{#        <label for="rental_period">rental_period:</label><br>#}
+{#        <input type="text" id="rental_period" name="rental_period"><br>#}
+{#        <label for="price">Price:</label><br>#}
+{#        <input type="number" id="price" name="price"><br>#}
+{#        <label for="taking_time">Taking_time:</label><br>#}
+{#        <input type="text" id="taking_time" name="taking_time"><br>#}
+{#        <label for="sqft">sqft:</label><br>#}
+{#        <input type="number" id="sqft" name="sqft"><br>#}
+{#        <label for="name">name:</label><br>#}
+{#        <input type="text" id="name" name="name"><br>#}
+{#        <label for="place">Place:</label><br>#}
+{#        <input type="text" id="place" name="place"><br>#}
+{#        <label for="owner">Owner:</label><br>#}
+{#        <input type="text" id="owner" name="owner"><br>#}
+
+{#        <input type="submit" value="Submit">#}
+{#        </form>#}
+        {% block content %}
+            <h1>Property Detail</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if form.errors %}
+                    <div class="errors">
+                        {% for field_errors in form.errors.values %}
+                            {% for error in field_errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <button type="submit">Save</button>
+            </form>
+        {% endblock %}
+

@@ -1,4 +1,5 @@
 from django.db import models
+from modeltranslation.translator import translator, TranslationOptions
 
 
 class Home(models.Model):
@@ -11,6 +12,16 @@ class Home(models.Model):
     place = models.CharField(max_length=100)
     owner = models.CharField(max_length=100)
     upload_time = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+
+class Happys(models.Model):
+    description = models.CharField(max_length=100)
+    picture = models.ImageField(upload_to='homese/')
+    name = models.CharField(max_length=100)
+    jobs = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
