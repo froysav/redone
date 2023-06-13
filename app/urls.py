@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from app.views import home_list, PropertyDetailView, deletes
+from app.views import home_list, deletes, PropertyDetailView
 
 urlpatterns = [
     path('', home_list, name='home_list'),

@@ -72,45 +72,30 @@
 </section>
 {% block content %}
 {% endblock %}
+
 <section class="ftco-section ftco-no-pt">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-                <span class="subheading">Properties</span>
-                <h2 class="mb-2">Properties for this Cities</h2>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+                    <span class="subheading">Properties</span>
+                    <h2 class="mb-2">Properties for this Cities</h2>
+                </div>
+            </div>
+            {% for iteme in city %}
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="#" class="search-place img" style="background-image: url({{ iteme.picture.url }});">
+                        <div class="desc">
+                            <h3><span>{{ iteme.place }}</span></h3>
+                            <span>{{ iteme.properties }}</span>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#" class="search-place img"
-                   style="background-image: url({% static 'images/place-1.jpg' %});">
-                    <div class="desc">
-                        <h3><span>Miami</span></h3>
-                        <span>24 Properties</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#" class="search-place img"
-                   style="background-image: url({% static 'images/place-2.jpg' %});">
-                    <div class="desc">
-                        <h3><span>Chicago</span></h3>
-                        <span>20 Properties</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#" class="search-place img"
-                   style="background-image: url({% static 'images/place-3.jpg' %});">
-                    <div class="desc">
-                        <h3><span>Illinoi</span></h3>
-                        <span>15 Properties</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+
 <footer class="ftco-footer ftco-section">
     <div class="container">
         <div class="row mb-5">

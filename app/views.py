@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.utils.timezone import activate
 from django.views import View
 from .forms import RentalForm
-from .models import Home, Happys
+from .models import Home, Happys, Cities, Agent, Blog
 
 
 def home_list(request):
@@ -19,37 +19,47 @@ def home_list(request):
     else:
         homes = Home.objects.all()
     homese = Happys.objects.all()
+    city = Cities.objects.all()
+    agent = Agent.objects.all()
+    blog = Blog.objects.all()
     context = {
         "homes": homes,
-        'homese': homese
+        'homese': homese,
+        "city": city,
+        "agent": agent,
+        "blog": blog,
     }
     return render(request=request, template_name='index.html', context=context)
 
 
 def about(request):
+    city = Cities.objects.all()
     context = {
-        'content': 'This website to sell Houses',
+        'city': city,
     }
     return render(request, 'files/about.html', context)
 
 
 def agent(request):
+    agent = Agent.objects.all()
     context = {
-        'agent': 'Our agent Amir',
+        'agent': agent,
     }
     return render(request, 'files/agent.html', context)
 
 
 def properties(request):
+    homes = Home.objects.all()
     context = {
-        'properties': 'Properties',
+        'homes': homes,
     }
     return render(request, 'files/properties.html', context)
 
 
 def blog(request):
+    blog = Blog.objects.all()
     context = {
-        'blog': 'Blog',
+        'blog': blog,
     }
     return render(request, 'files/blog.html', context)
 
@@ -149,12 +159,14 @@ def details(request, pk):
     return render(request, 'files/details.html', context)
 
 
+
+
 class PropertyDetailView(View):
     def get(self, request, pk):
         form = RentalForm()
         return render(request, 'files/update.html', {'form': form})
 
-    def post(self, request, pk):
+    def posts(self, request, pk):
         form = RentalForm(request.POST, request.FILES)
         if form.is_valid():
             property = form.save()

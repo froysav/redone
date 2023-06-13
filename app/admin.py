@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib import admin
-from .models import Home, Happys
+from .models import Home, Happys, Cities, Agent, Blog
 
 
 class HomeAdmin(admin.ModelAdmin):
@@ -17,3 +17,27 @@ class HomeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Happys, HomeAdmin)
+
+
+class HomeAdmin(admin.ModelAdmin):
+    list_display = (
+        'picture', 'place', 'properties')
+
+
+admin.site.register(Cities, HomeAdmin)
+
+
+class HomeAdmin(admin.ModelAdmin):
+    list_display = (
+        'picture', 'name', 'listing', 'properties')
+
+
+admin.site.register(Agent, HomeAdmin)
+
+
+class HomeAdmin(admin.ModelAdmin):
+    list_display = (
+        'picture', 'date', 'name', 'reason')
+
+
+admin.site.register(Blog, HomeAdmin)

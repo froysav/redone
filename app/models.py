@@ -25,3 +25,32 @@ class Happys(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Cities(models.Model):
+    picture = models.ImageField()
+    place = models.CharField(max_length=100)
+    properties = models.IntegerField()
+
+    def __str__(self):
+        return self.picture
+
+
+class Agent(models.Model):
+    picture = models.ImageField()
+    name = models.CharField(max_length=100)
+    listing = models.CharField(max_length=100)
+    properties = models.IntegerField()
+
+    def __str__(self):
+        return self.picture
+
+
+class Blog(models.Model):
+    picture = models.ImageField()
+    date = models.DateField()
+    name = models.CharField(max_length=100)
+    reason = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name

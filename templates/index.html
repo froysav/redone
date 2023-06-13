@@ -142,34 +142,17 @@
                     <h2 class="mb-2">Properties for this Cities</h2>
                 </div>
             </div>
+            {% for iteme in city %}
             <div class="row">
                 <div class="col-md-4">
-                    <a href="#" class="search-place img"
-                       style="background-image: url({% static 'images/place-1.jpg' %});">
+                    <a href="#" class="search-place img" style="background-image: url({{ iteme.picture.url }});">
                         <div class="desc">
-                            <h3><span>Miami</span></h3>
-                            <span>24 Properties</span>
+                            <h3><span>{{ iteme.place }}</span></h3>
+                            <span>{{ iteme.properties }}</span>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <a href="#" class="search-place img"
-                       style="background-image: url({% static 'images/place-2.jpg' %});">
-                        <div class="desc">
-                            <h3><span>Chicago</span></h3>
-                            <span>20 Properties</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="search-place img"
-                       style="background-image: url({% static 'images/place-3.jpg' %});">
-                        <div class="desc">
-                            <h3><span>Illinoi</span></h3>
-                            <span>15 Properties</span>
-                        </div>
-                    </a>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -346,53 +329,19 @@
                 </div>
             </div>
             <div class="row">
+                {% for items in agent %}
                 <div class="col-md-3 ftco-animate">
                     <div class="agent">
                         <div class="img">
-                            <img src='{% static "images/team-1.jpg" %}' class="img-fluid" alt="Colorlib Template">
+                            <img src='{{ items.picture.url }}' class="img-fluid" alt="Colorlib Template">
                             <div class="desc">
-                                <h3><a href="{% url 'agent' %}">Carlos Henderson</a></h3>
-                                <p class="h-info"><span class="location">Listing</span> <span
-                                        class="details">10 Properties</span></p>
+                                <h3><a href="{% url 'agent' %}">{{ items.name }}</a></h3>
+                                <p class="h-info"><span class="location">{{ items.listing }}</span> <span
+                                        class="details">{{ items.properties }}</span></p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 ftco-animate">
-                    <div class="agent">
-                        <div class="img">
-                            <img src='{% static "images/team-2.jpg" %}' class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <h3><a href="{% url 'agent' %}">Mike Bochs</a></h3>
-                            <p class="h-info"><span class="location">Listing</span> <span
-                                    class="details">10 Properties</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 ftco-animate">
-                    <div class="agent">
-                        <div class="img">
-                            <img src='{% static "images/team-3.jpg" %}' class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <h3><a href="{% url 'agent' %}">Jessica Moore</a></h3>
-                            <p class="h-info"><span class="location">Listing</span> <span
-                                    class="details">10 Properties</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 ftco-animate">
-                    <div class="agent">
-                        <div class="img">
-                            <img src='{% static "images/team-4.jpg" %}' class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <h3><a href="{% url 'agent' %}">Sarah Geronimo</a></h3>
-                            <p class="h-info"><span class="position">Listing</span> <span
-                                    class="details">10 Properties</span></p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -408,64 +357,21 @@
                 </div>
             </div>
             <div class="row d-flex">
+                {% for item in blog %}
                 <div class="col-md-3 d-flex ftco-animate">
                     <div class="blog-entry justify-content-end">
                         <div class="text">
                             <a href="{% url 'blog' %}" class="block-20 img"
-                               style="background-image: url({% static 'images/image_1.jpg' %});">
+                               style="background-image: url({{ item.picture.url }});">
                             </a>
                             <div class="meta mb-3">
-                                <div><a href="#">June 01, 2020</a></div>
-                                <div><a href="#">Admin</a></div>
+                                <div><a href="#">{{ item.date }}</a></div>
+                                <div><a href="#">{{ item.name }}</a></div>
                                 <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                             </div>
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                            <h3 class="heading"><a href="#">{{ item.reason }}</a></h3>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <a href="{% url 'blog' %}" class="block-20 img"
-                               style="background-image: url({% static 'images/image_2.jpg' %});">
-                            </a>
-                            <div class="meta mb-3">
-                                <div><a href="#">June 01, 2020</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                            </div>
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <a href="{% url 'blog' %}" class="block-20 img"
-                               style="background-image: url({% static 'images/image_3.jpg' %});">
-                            </a>
-                            <div class="meta mb-3">
-                                <div><a href="#">June 01, 2020</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                            </div>
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <a href="{% url 'blog' %}" class="block-20 img"
-                               style="background-image: url({% static 'images/image_4.jpg' %});">
-                            </a>
-                            <div class="meta mb-3">
-                                <div><a href="#">June 01, 2020</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                            </div>
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
